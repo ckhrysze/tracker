@@ -6,10 +6,12 @@ default: &default
 
 development:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: db/tracker_development
 
 test: &test
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: db/tracker_test
 
 production:
