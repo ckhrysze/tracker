@@ -1,7 +1,7 @@
 @domain @api
 Feature: Creating projects
 
-  Rules:
+  Rules
   - Name is required
   - Created projects should default to "active" state
 
