@@ -16,17 +16,16 @@ module V1
       end
     end
 
-    # TODO: Impl
     swagger_api :show do
-      summary 'Fetch a single Project'
+      summary 'Fetch a single Task'
       param :path, :id, :string, :required, 'User Id'
     end
     def show
-      project = Project.find_by params[:id]
-      if project.present?
-        render json: project
+      task = Task.find params[:id]
+      if task.present?
+        render json: TaskSerializer.new(task).attributes
       else
-        render json: { errors: ['Project not found'] }, status: 404
+        render json: { errors: ['Task not found'] }, status: 404
       end
     end
 
@@ -54,32 +53,12 @@ module V1
     end
     def update
       task = Task.find params[:id]
-      previous_status = task.status
       if task.present? && task.update_attributes(task_params)
-        if task.status == 'done' && previous_status != 'done'
-          Notifier.send_task_complete_notification(task)
-        end
         render json: task
       elsif task.present?
         render json: { errors: task.errors.full_messages }, status: 400
       else
         render json: { errors: ['Task not found'] }, status: 404
-      end
-    end
-
-    # TODO: Impl
-    swagger_api :destroy do
-      summary 'Deletes an existing Project'
-      param :path, :id, :string, :required, 'Project Id'
-    end
-    def destroy
-      project = Project.find_by params[:id]
-      if project.present? && project.update_attributes(state: :disabled)
-        render json: project
-      elsif project.present?
-        render json: { errors: project.errors.full_messages }, status: 400
-      else
-        render json: { errors: ['Project not found'] }, status: 404
       end
     end
 

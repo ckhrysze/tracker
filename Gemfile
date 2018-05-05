@@ -33,6 +33,7 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'test_after_commit'
 end
 
 group :development do
