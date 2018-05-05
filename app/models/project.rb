@@ -15,16 +15,18 @@
 #
 
 class Project < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: true
-  validates :state, presence: true
-
-  after_initialize :set_default_state
+  has_many :tasks
 
   enum state: {
     disabled: -1,
     active: 10,
     archived: 20
   }
+
+  validates :name, presence: true, uniqueness: true
+  validates :state, presence: true
+
+  after_initialize :set_default_state
 
   private
 

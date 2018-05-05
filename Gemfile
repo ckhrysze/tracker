@@ -10,6 +10,7 @@ gem 'rack-cors'
 gem 'rails', '4.2.6'
 gem 'rails-api'
 gem 'swagger-docs'
+gem 'twilio-ruby', '~> 5.9.0'
 
 group :development, :test do
   gem 'active_cucumber'

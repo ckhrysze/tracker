@@ -3,7 +3,7 @@ Given(/^(\d+) projects?$/) do |count|
 end
 
 Given(/^a project:$/) do |table|
-  d.given_project table
+  @project = d.given_project table
 end
 
 When(/^I (?:try to )?create a project with:$/) do |table|
