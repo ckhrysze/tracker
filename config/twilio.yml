@@ -1,0 +1,8 @@
+production:
+  account_sid: AC1322b59a6dd402eeda9e8069b751ce21
+  auth_token: <%= ENV['TWILIO_AUTH_TOKEN'] %>
+  sender: 12243130483
+development:
+  account_sid: AC1322b59a6dd402eeda9e8069b751ce21
+  auth_token: <%= ENV['TWILIO_AUTH_TOKEN'] %>
+  sender: 12243130483

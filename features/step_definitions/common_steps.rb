@@ -1,3 +1,7 @@
+Given(/^a project$/) do
+  @project = d.given_project
+end
+
 When(/^I request the (.*) list$/) do |collection_type|
   d.request_list collection_type, Hash.new
 end

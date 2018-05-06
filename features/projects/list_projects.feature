@@ -1,7 +1,7 @@
 @domain @api
 Feature: Listing projects
 
-  Rules:
+  Rules
   - if a negative page is requested, an error is thrown
   - if a page that is too high is requested, the last page is returned
   - if a negative page_size is requested, the default size is used
@@ -66,16 +66,16 @@ Feature: Listing projects
     Then I get the data:
       """
       {
-        projects: [
-          {
-            id: '54f8419c-3f22-4cba-b194-5f8b4727ccfd',
-            name: 'Sample Project',
-            description: 'A small sample project',
-            state: 'active'
-          }
-        ],
-        count: 1,
-        current_page_number: 1,
-        total_page_count: 1
+      projects: [
+      {
+      id: '54f8419c-3f22-4cba-b194-5f8b4727ccfd',
+      name: 'Sample Project',
+      description: 'A small sample project',
+      state: 'active'
+      }
+      ],
+      count: 1,
+      current_page_number: 1,
+      total_page_count: 1
       }
       """
