@@ -11,16 +11,16 @@ Feature: Transitioning tasks
   Scenario: Transition task to in progress
     Given a project
     And that project has a task "first"
-    When I transition the task to "in_progress"
+    When I transition the task to "in-progress"
     Then the task has details:
       | NAME   | first       |
-      | STATUS | in_progress |
+      | STATUS | in-progress |
 
 
   Scenario: Transition task to done
     Given a project
     And that project has a task "second"
-    When I transition the task to "in_progress"
+    When I transition the task to "in-progress"
     And I transition the task to "done"
     Then the task has details:
       | NAME   | second |
@@ -38,7 +38,7 @@ Feature: Transitioning tasks
   Scenario: Transition task to todo from done
     Given a project
     And that project has a task "done is done"
-    When I transition the task to "in_progress"
+    When I transition the task to "in-progress"
     And I transition the task to "done"
     And I transition the task to "todo"
     Then I get a status error
@@ -47,7 +47,7 @@ Feature: Transitioning tasks
   Scenario: Transition task to in progress from done
     Given a project
     And that project has a task "done is done"
-    When I transition the task to "in_progress"
+    When I transition the task to "in-progress"
     And I transition the task to "done"
-    And I transition the task to "in_progress"
+    And I transition the task to "in-progress"
     Then I get a status error

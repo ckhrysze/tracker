@@ -21,7 +21,7 @@ class Task < ActiveRecord::Base
   enum status: {
     done: -1,
     todo: 10,
-    in_progress: 20
+    'in-progress': 20
   }
 
   validates :name, presence: true
@@ -39,16 +39,16 @@ class Task < ActiveRecord::Base
 
   def ensure_proper_status_progression
     if self.status_changed?
-      return true if self.status_changed?(from: 'todo', to: 'in_progress')
-      return true if self.status_changed?(from: 'in_progress', to: 'todo')
-      return true if self.status_changed?(from: 'in_progress', to: 'done')
+      return true if self.status_changed?(from: 'todo', to: 'in-progress')
+      return true if self.status_changed?(from: 'in-progress', to: 'todo')
+      return true if self.status_changed?(from: 'in-progress', to: 'done')
       errors.add(:status, "Invalid status transition")
     end
   end
 
   def is_task_now_complete
     if self.previous_changes.member?('status')
-      return true if self.previous_changes['status'] == ['in_progress', 'done']
+      return true if self.previous_changes['status'] == ['in-progress', 'done']
     end
     return false
   end

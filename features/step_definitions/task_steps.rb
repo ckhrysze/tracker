@@ -23,7 +23,7 @@ When(/^I request the task "([^"]+)"$/) do |task_id|
   d.request_task @project.id, task_id
 end
 
-When(/^I transition the task to "(\w+)"$/) do |status|
+When(/^I transition the task to "([\w-]+)"$/) do |status|
   begin
     d.transition_task @task, status: status
   rescue ActiveRecord::RecordInvalid => e

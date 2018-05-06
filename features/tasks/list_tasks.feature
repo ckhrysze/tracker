@@ -22,7 +22,7 @@ Feature: Listing tasks
     And that project has tasks:
       | ID                                   | NAME   | STATUS      |
       | 54f8419c-3f22-4cba-b194-5f8b4727ccfd | first  | todo        |
-      | 54f8419c-3f22-4cba-b194-5f8b4727ccfe | second | in_progress |
+      | 54f8419c-3f22-4cba-b194-5f8b4727ccfe | second | in-progress |
       | 54f8419c-3f22-4cba-b194-5f8b4727ccff | third  | done        |
     When I request the project's tasks
     Then I get the data:
@@ -39,7 +39,7 @@ Feature: Listing tasks
       id: '54f8419c-3f22-4cba-b194-5f8b4727ccfe',
       name: 'second',
       description: '',
-      status: 'in_progress'
+      status: 'in-progress'
       },
       {
       id: '54f8419c-3f22-4cba-b194-5f8b4727ccff',
