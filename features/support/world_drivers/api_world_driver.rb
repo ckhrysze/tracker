@@ -53,7 +53,7 @@ class ApiWorldDriver < WorldDriver
   end
 
   def transition_task task, status: nil
-    fail "No staus given for task transition" if status.nil?
+    fail "No status given for task transition" if status.nil?
 
     result = put(
       "/v1/projects/#{task.project_id}/tasks/#{task.id}",
