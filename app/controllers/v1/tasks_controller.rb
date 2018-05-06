@@ -5,7 +5,7 @@ module V1
     swagger_api :index do
       summary 'List all tasks for the given project'
       param :query, :page, :integer, :optional, 'page number of results, default 1'
-      param :query, :page_size, :integer, :optional, 'number of results per page, default 25'
+      param :query, :page_size, :integer, :optional, 'number of results per page, default 10'
     end
     def index
       tasks, errors = ListTasks.new(index_params).call
@@ -18,7 +18,7 @@ module V1
 
     swagger_api :show do
       summary 'Fetch a single Task'
-      param :path, :id, :string, :required, 'User Id'
+      param :path, :id, :string, :required, 'Task Id'
     end
     def show
       task = Task.find params[:id]

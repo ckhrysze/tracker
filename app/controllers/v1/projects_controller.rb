@@ -19,7 +19,7 @@ module V1
 
     swagger_api :show do
       summary 'Fetch a single Project'
-      param :path, :id, :string, :required, 'User Id'
+      param :path, :id, :string, :required, 'Project Id'
     end
     def show
       project = Project.find_by params[:id]
