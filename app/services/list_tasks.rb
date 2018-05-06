@@ -14,7 +14,7 @@ class ListTasks < ListCollection
   end
 
   def collection
-    @tasks ||= task_respository.all
+    @tasks ||= task_respository.where project_id: @project_id
   end
 
 end

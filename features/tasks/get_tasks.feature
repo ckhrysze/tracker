@@ -2,7 +2,7 @@
 Feature: Get task
 
 
-  Scenario: Transition task to in progress
+  Scenario: Get a specific task
     Given a project
     And that project has tasks:
       | ID                                   | NAME   | STATUS |

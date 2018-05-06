@@ -22,7 +22,7 @@ class ApiWorldDriver < WorldDriver
   end
 
   def request_tasks project
-    request_list "projects/#{project.id}/tasks", {project_id: project.id}
+    request_list "projects/#{project.id}/tasks", {}
   end
 
   def request_task project_id, task_id

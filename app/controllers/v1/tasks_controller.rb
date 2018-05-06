@@ -21,7 +21,8 @@ module V1
       param :path, :id, :string, :required, 'Task Id'
     end
     def show
-      task = Task.find params[:id]
+      project = Project.find params[:project_id]
+      task = project.tasks.find params[:id]
       if task.present?
         render json: TaskSerializer.new(task).attributes
       else
@@ -65,11 +66,11 @@ module V1
     private
 
     def index_params
-      params.permit(:page, :page_size).to_h.symbolize_keys
+      params.permit(:page, :page_size, :project_id).to_h.symbolize_keys
     end
 
     def task_params
-      params.require(:task).permit :name, :description, :status
+      params.require(:task).permit :name, :description, :status, :project_id
     end
   end
 end

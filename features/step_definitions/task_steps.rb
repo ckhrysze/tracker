@@ -3,7 +3,7 @@ Given(/^that project has (\d+) tasks$/) do |count|
 end
 
 Given(/^that project has tasks:$/) do |table|
-  d.given_tasks project: @project, data: table
+  tasks = d.given_tasks project: @project, data: table
 end
 
 Given(/^that project has a task "([^"]+)"$/) do |name|

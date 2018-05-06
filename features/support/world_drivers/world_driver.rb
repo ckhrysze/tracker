@@ -34,7 +34,7 @@ class WorldDriver
     if count.present?
       FactoryGirl.create_list :task, count.to_i, project: project
     elsif data.present?
-      ActiveCucumber.create_many Task, data
+      ActiveCucumber.create_many Task, data, context: {project_id: project.id}
     else
       fail 'No tasks given'
     end
